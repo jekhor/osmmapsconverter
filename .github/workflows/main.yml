@@ -21,12 +21,12 @@ jobs:
       run: |
         cd garmin
         wget -nv https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
-        ./build-lt.sh lithuania-latest.osm.pbf
+        ./build-lt.sh lithuania-latest.osm.pbf stranger
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
         name: OSM Garmin Lithuania maps
-        path: out
+        path: garmin/out
         if-no-files-found: error
         overwrite: true
