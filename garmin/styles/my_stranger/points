@@ -353,3 +353,7 @@ building=entrance [0x11514 resolution 25]
 
 net:bone=float & disused=yes [0x11605 resolution 24]
 net:bone=float & disused!=yes [0x11604 resolution 23]
+
+< finalize >
+
+name=* { name '${name}' }
