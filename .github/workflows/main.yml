@@ -1,0 +1,32 @@
+on:
+  schedule:
+  - cron: "0 4 * * *"
+
+jobs:
+  build-maps:
+    name: "Build maps"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Prepare environment
+      run: |
+        cd garmin
+        ./prepare.sh
+
+    - name: Build maps
+      run: |
+        wget https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
+        ./build-lt.map
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: OSM Garmin Lithuania maps
+        path: out
+        if-no-files-found: error
+        overwrite: true
+        
+
+        
+
+    
