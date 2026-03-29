@@ -20,7 +20,7 @@ jobs:
     - name: Build maps
       run: |
         cd garmin
-        wget -q https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
+        wget -nv https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
         ./build-lt.sh lithuania-latest.osm.pbf
 
     - name: Upload artifacts
@@ -30,8 +30,3 @@ jobs:
         path: out
         if-no-files-found: error
         overwrite: true
-        
-
-        
-
-    
