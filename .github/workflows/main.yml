@@ -19,8 +19,9 @@ jobs:
 
     - name: Build maps
       run: |
-        wget https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
-        ./build-lt.map
+        cd garmin
+        wget -q https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
+        ./build-lt.sh
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
