@@ -21,7 +21,7 @@ jobs:
       run: |
         cd garmin
         wget -q https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
-        ./build-lt.sh
+        ./build-lt.sh lithuania-latest.osm.pbf
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
